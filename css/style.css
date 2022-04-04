@@ -2,14 +2,10 @@ dfn {
     font-weight: bold;
 }
 
+dl {
+    text-indent: 2%;
+}
+
 dt {
     font-weight: bold;
-}
-
-p {
-    text-indent: 0;
-}
-
-blockquote {
-    text-indent: 0;
 }

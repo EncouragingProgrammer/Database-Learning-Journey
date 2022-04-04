@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-	<title>Database Management Learning Journey</title>
+	<title>Database Management Learning Journey - Part 1</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -11,12 +11,124 @@
     <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
 
 	<h2>Unit 1 Section 1: File Processing Systems</h2>
+
 	<p>
+		Wikipedia defines a <dfn>database</dfn> as " an organized collection of data stored 
+		and accessed electronically. Small databases can be stored on a file system, while 
+		large databases are hosted on computer clusters or cloud storage." 
+		<cite><a href = https://en.wikipedia.org/wiki/Database>(Database)</a> </cite>
+	</p>
+
+	<h3>Lecture by Daniel Gaudreault</h3>
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/8JZIIYXMNmA?start=1621" 
+	title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+	encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<p>
+		<h3>
+			Definitions and Notes
+			<cite>(Hoffer)</cite>
+
+		</h3>
+
 		<dl>
 			<dt div="term">Database</dt>
-			<dd div="defintion">An organized collection of logically related data.</dd>
+			<dd div="defintion">
+				An organized collection of logically related data. 
+			</dd>
+			<dt div="term">Data</dt>
+			<dd div="definition">
+				Stored representation of objects and events that have meaning and importance 
+				in the user's environment.
+			</dd>
+			<dt div="term">Information</dt>
+			<dd div="definition">
+				Data that have been processed in such a way as to increase the knowledge of 
+				the person who uses the data.
+			</dd>
+			<dt div="term">Metadata</dt>
+			<dd div="definition">
+				Data that describes the properties or characteristics of end-user data and
+				the context of those data.
+			</dd>
+		</dl>
+
+		<p>
+			<h4>Disadvantages of traditional file processing systems</h4>
+			<ul>
+				<li>Program-data dependence</li>
+				<li>Duplication of data</li>
+				<li>Limited data sharing</li>
+				<li>Lengthy development times</li>
+				<li>Excessive program maintenance</li>
+			</ul>
+		</p>
+
+		<dl>
+			<dt div="term">Database applicaton</dt>
+			<dd div="definition">
+				An application program (or set of related programs) that is used to perform a series
+				of database activities (create, read, update and delete) on behalf of database users.
+			</dd>
+			<dt div="term">Data model</dt>
+			<dd div="definition">
+				Graphical systems used to capture the nature and relationships among data.
+			</dd>
+			<dt div="term">Entity</dt>
+			<dd div="definition">
+				A person, a place, an object, an event, or a concept in the user environment about
+				which the organization wishes to maintain data.
+			</dd>
+			<dt div="term">Relational database</dt>
+			<dd div="definition">
+				A database that represents data as a collection of tables in which all data relationships
+				are represented by common values in related tables.
+			</dd>
+			<dt div="term">Database management system (DBMS)</dt>
+			<dd div="definition">
+				A software system that is used to create, maintain, and provide controlled access to 
+				user databases.
+			</dd>
+			<dt div="term"></dt>
+			<dd div="definition"></dd>
+		</dl>
+
+		<p>
+			<h4>Advantages of the Database Approach</h4>
+			<ul>
+				<li>Program-data independence</li>
+				<li>Planned data redundancy</li>
+				<li>Improved data consistency</li>
+				<li>Improved data sharing</li>
+				<li>Increased productivity of application development</li>
+				<li>Enforcement of standards</li>
+				<li>Improved data quality</li>
+				<li>Improved data accessibility and responsiveness</li>
+				<li>Reduced program maintenance</li>
+				<li>Improved dexision support</li>
+			</ul>
+		</p>
+
+		<dl>
+			<dt div="term">Data independence</dt>
+			<dd div="definition">
+				The separation of data descriptions from the application programs that use the data.
+			</dd>
+			<dt div="term">User view</dt>
+			<dd div="definition">
+				A logical description of some portion of teh database that is required by a user to
+				perform some task.
+			</dd>
+			<dt div="term">Constraint</dt>
+			<dd div="definition">
+				A rule that cannot be violated by database users.
+			</dd>
+			<dt div="term"></dt>
+			<dd div="definition"></dd>
 		</dl>
 	</p>
 
+	<footer><a href="../pages/Citations.html">Citations</a></footer>
 
 </body>
