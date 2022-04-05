@@ -3,9 +3,42 @@ dfn {
 }
 
 dl {
-    text-indent: 2%;
+    text-indent: 4%;
 }
 
 dt {
-    font-weight: bold;
+    font-weight:bold;
+    color: 3d5a6c;
 }
+
+dd {
+    margin-bottom: 5px;
+}
+
+body {
+    width: 75%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+table, th, td {
+    border: 5px solid white;
+    border-collapse: collapse;
+
+}
+
+th, td {
+    padding: 15px;
+    background-color: #BCF4F5;
+}
+
+h1 {
+    padding: 20px;
+    background-color: #BCF4F5;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
