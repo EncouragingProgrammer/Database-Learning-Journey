@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+	<title>Database Management Learning Journey - Part 2</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
+
+	<h2>Unit 2 Section 1: The Entity-Relationship Model</h2>
+
+    <h3>Lecture 2 by Daniel Gaudreault</h3>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bWOf7NE0m0g?start=348" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>
+        <h4>General Steps to create an ERD <cite>(Gaudreault 28:07-33:16)</cite></h4>
+        <ul>
+            <li>Identify the entity</li>
+            <li>Identify the entity's attributes</li>
+            <li>Identify the primary keys</li>
+            <li>Identify the relationship between entities</li>
+            <li>Identify the cardinality constraint</li>
+            <li>Draw the ERD</li>
+            <li>Check the ERD</li>
+        </ul>
+    </p>
+
+    <h3>
+		Definitions and Notes
+		<cite>(Hoffer)</cite>
+	</h3>
+
+    <dl>
+        <dt>Entity-relationship model (E-R model)</dt>
+        <dd>
+            A logical representation of the data for an organization or for a business area,
+            using entities for categories of data and relationships for associateions between
+            entities.
+        </dd>
+        <dt>Entity-relationship diagram (E-R diagram, or ERD)</dt>
+        <dd>
+            A graphical representation of an entity-relationship model.
+        </dd>
+    </dl>
+
+    <h4 class = "center">Cardonality</h4> 
+    <p class="container">
+        <img src="../images/cardonality.png" 
+        alt="Cardonality notation, Mandatory One, Mandatory Many, Optional One, Optional Many"
+        width = 50%>
+    </p>
+
+    <dl>
+        <dt>Business rule</dt>
+        <dd>
+            A statement that defines or constrains some aspect of the business. It is intended
+            to assert business structure or to control or influence the behavior of the business.
+        </dd>
+    </dl>
+
+    <h4 class = "center">Characteristics of a Good Business Rule</h4>
+    <table class="center">
+		<tr>
+			<th>Characteristic</th>
+			<th>Explanation</th>
+		</tr>
+		<tr>
+			<td>Declarative</td>
+			<td>
+                A business rule is a statement of policy, not how policy is enforced or conducted;
+                the rule does not describe a process or implementation, but rather describes what a
+                process validates.
+            </td>
+		</tr>
+        <tr>
+            <td>Precise</td>
+            <td>
+                With the related organization, the rule must have only one interpretation among all
+                interested people, and its meaning must be clear.
+            </td>
+        </tr>
+        <tr>
+            <td>Atomic</td>
+            <td>
+                A business rule marks one statement, not several; no part of the rule can stand on
+                its own as a rule (that is, the rule is indivisible, yet sufficient).
+            </td>
+        </tr>
+        <tr>
+            <td>Consistent</td>
+            <td>
+                A business rule must be internally consistent (that is, not contain conflicting
+                statements) and must be consistent with (and not contradict) other rules.
+            </td>
+        </tr>
+        <tr>
+            <td>Expressible</td>
+            <td>
+                A business rule must be able to be stated in natural language, but it will be stated
+                in a structured natural language so that there is no misinterpretation.
+            </td>
+        </tr>
+        <tr>
+            <td>Distinct</td>
+            <td>
+                Business rules are not redundant, but a business rule may refer to other rules 
+                (especially to definitions).
+            </td>
+        </tr>
+        <tr>
+            <td>Business-oriented</td>
+            <td>
+                A business rule is stated in terms businesspeople can understand, and because it is a
+                statement of business policy, only businesspeople can modify or invalidate a rule;
+                thus, a business rule is owned by the business.
+            </td>
+        </tr>
+    </table>
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
+
+</body>

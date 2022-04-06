@@ -40,5 +40,17 @@ h1 {
 .center {
     margin-left: auto;
     margin-right: auto;
-  }
+}
+
+h4.center {
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
+}
+
+/* Centering images */
+.container {
+    display: flex;
+    justify-content: center;
+}
 
