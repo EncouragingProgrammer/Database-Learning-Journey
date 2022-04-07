@@ -251,6 +251,104 @@
             The maximum number of instances of one entity that may be associated with each
             instance of another entity.
         </dd>
+        <dt>Time stamp</dt>
+        <dd>
+            A time value that is associated with a data value, often indicating when some
+            event occurred that affected the data value.
+        </dd>
+    </dl>
+
+    <p>
+        <h4>Example SQL code for a query</h4>
+        <code>
+            SELECT * <br>
+            FROM Product <br>
+            WHERE ProductDescription LIKE "Computer Desk%";
+        </code>
+        <p>
+            This query lists all details for the various computer desks that are stocked
+            by the company.
+        </p>
+    </p>
+
+    <h2>Unit 2 Section 2: The Enhanced Entity-Relationship Model</h2>
+
+    <dl>
+        <dt>Enhanced entity-relationship (EER) model</dt>
+        <dd>
+            A model that has resulted from extending the original E-R model with new 
+            modeling constructs.
+        </dd>
+        <dt>Subtype</dt>
+        <dd>
+            A subgrouping of the entities in an entity type that is meaningful to the 
+            organization and that shares common attributes or relationships distinct
+            from other subgroupings.
+        </dd>
+        <dt>Supertype</dt>
+        <dd>
+            A generic entity type that has a relationship with one or more subtypes.
+        </dd>
+        <dt>Attribute inheritance</dt>
+        <dd>
+            A property by which subtype entities inherit values of all attributes and
+            instances of all relationships of their supertype.
+        </dd>
+        <dt>Generalization</dt>
+        <dd>
+            The process of defining a more general entity type from a set of more
+            specialized entity types.
+        </dd>
+        <dt>Specialization</dt>
+        <dd>
+            The process of defining one or more subtypes of the supertype and forming
+            supertype/subtype relationships.
+        </dd>
+        <dt>Completeness constraint</dt>
+        <dd>
+            A type of constraint that addresses whether an instance of a supertype must
+            also b a member of at least one subtype.
+        </dd>
+        <dt>Total specializatin rule</dt>
+        <dd>
+            A rule that specifies that each entity instance of a supertype must be a
+            member of some subtype in the relationship.
+        </dd>
+        <dt>Partial specialization rule</dt>
+        <dd>
+            A rule that specifies that an entity instance of a supertype is allowed
+            not to belong to any subtype.
+        </dd>
+        <dt>Disjointed constraints</dt>
+        <dd>
+            A constraint that addresses whether an instance of a supertype may 
+            simultaneously be a member of two (or more) subtypes.
+        </dd>
+        <dt>Disjoint rule</dt>
+        <dd>
+            A rule that specifies that an instance of a supertype may not simultaneously
+            be a member of two (or more) subtypes.
+        </dd>
+        <dt>Overlap rule</dt>
+        <dd>
+            A rule that specifies that an instance of a supertype may simultaneously be
+            a member of two (or more) subtypes.
+        </dd>
+        <dt>Subtype discriminator</dt>
+        <dd>
+            An attribute of a supertype whose values determine the target subtype of
+            subtypes.
+        </dd>
+        <dt>Supertype/subtype hierarchy</dt>
+        <dd>
+            A hierarchical arrangement of supertypes and subtypes in which each subtype
+            has only one supertype.
+        </dd>
+        <dt>Entity cluster</dt>
+        <dd>
+            A set of one or more entity types and associated relationships grouped into
+            a single abstract entity type.
+        </dd>
         
     </dl>
 
