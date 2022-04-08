@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+	<title>Database Management Learning Journey - Part 3</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
+
+	<h2>Unit 3 Section 1: The Relational Data Model</h2>
+
+    <h3>Lecture 3 by Daniel Gaudreault</h3>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dtjej7Z_jtI?start=82" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <h3>
+		Definitions and Notes
+		<cite>(Hoffer)</cite>
+	</h3>
+
+    <p>
+        <h4>The relational data model consists of the following three components</h4>
+        <ol>
+            <li>Data structure</li>
+            <li>Data manipulation</li>
+            <li>Data integrity</li>
+        </ol>
+    </p>
+
+    <dl>
+        <dt>Relation</dt>
+        <dd>
+            A named two-dimensional table of data.
+        </dd>
+        <dt>Primary Key</dt>
+        <dd>
+            An attribute or a combination of attributes that uniquely identifies each row
+            in a relation. (Primary key is underlined)
+        </dd>
+        <dt>Composite key</dt>
+        <dd>
+            A primary key that consists of more than one attribute.
+        </dd>
+        <dt>Foreign key</dt>
+        <dd>
+            An attribute in a relation that serves as the primary key of another relation
+            in the same database.
+        </dd>
+    </dl>
+
+    <p>
+        <h4>Properties of Relations</h4>
+        <ol>
+            <li>Each relation (or table) in a database has a unique name</li>
+            <li>An entry at the intersection of each row and column is atomic (or single valued). 
+                There can be only one value associated with each attribute on a specific row of a table; 
+                no multivalued attributes are allowed in a relation</li>
+            <li>Each row is unique; no two rows in a relation can be identical</li>
+            <li>Each attribute (or column) within a table has a unique name</li>
+            <li>The sequence of columns (left to right) is insignificant. The order of the columns in a 
+                relation can be changed without changing the meaning or use of the relation</li>
+            <li>The sequence of rows (top to bottom) is insignificant. As with columns, the order of the 
+                rows of a relation may be changed or stored in any sequence.</li>
+        </ol>
+    </p>
+
+    <dl>
+        <dt>Null</dt>
+        <dd>
+            A value that may be assigned to an attribute when no other value applies or when the
+            appicable value is unknown.
+        </dd>
+        <dt>Entity integrity rule</dt>
+        <dd>
+            A rule that states that no primary key attribute (or component of a primary key attribute)
+            may be null.
+        </dd>
+        <dt>Referential integtiy constraints</dt>
+        <dd>
+            A rule that states that either each foreign key value must match a primary key value in
+            another relation or the foreign key value must be null.
+        </dd>
+        <dt>Well-structured relation</dt>
+        <dd>
+            A relation that contains minimal redundancy and allows users to insert, modify, and delete
+            the rows in a table without errors or inconsistencies.
+        </dd>
+        <dt>Anomaly</dt>
+        <dd>
+            An error or inconsistency that may result when a user attempts to update a table that
+            contains redundant data. The three types of anomalies are insertion, deletion, and
+            modification anomalies.
+        </dd>
+        <dt>Surrogate primary key</dt>
+        <dd>
+            A serial number or other system-assigned primary key for a relation.
+        </dd>
+    </dl>
+
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
+
+</body>
