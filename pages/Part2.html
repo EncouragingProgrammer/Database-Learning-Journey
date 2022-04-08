@@ -349,9 +349,72 @@
             A set of one or more entity types and associated relationships grouped into
             a single abstract entity type.
         </dd>
-        
+        <dt>Universal data model</dt>
+        <dd>
+            A generic or template data model that can be reused as a starting point for
+            a data modeling project.
+        </dd>
+        <dt></dt>
     </dl>
 
+    <h4 class="center">Definitions of highest-level entity types in each supertype/subtype hierarchy</h4>
+    <table class="center">
+        <tr>
+            <td>PARTY</td>
+            <td>
+                Persons and organizations independent of the roles they play
+            </td>
+        </tr>
+        <tr>
+            <td>PARTY ROLE</td>
+            <td>
+                Information about a party for an associated role, thus allowing a party 
+                to act in multiple roles
+            </td>
+        </tr>
+        <tr>
+            <td>PARTY RELATIONSHIP</td>
+            <td>
+                Information about two parties (those in the “to” and “from” roles) within 
+                the context of a relationship
+            </td>
+        </tr>
+        <tr>
+            <td>EVENT</td>
+            <td>
+                Activities that may occur within the context of relationships (e.g., a 
+                CORRESPONDENCE can occur within the context of a PERSON-CUSTOMER 
+                relationship in which the “to” party is a CUSTOMER role for an 
+                ORGANIZATION and the from party is an EMPLOYEE role for a PERSON)
+            </td>
+        </tr>
+        <tr>
+            <td>PRIORITY TYPE</td>
+            <td>
+                Information about a priority that may set the priority for a given PARTY 
+                RELATIONSHIP
+            </td>
+        </tr>
+        <tr>
+            <td>STATUS TYPE</td>
+            <td>
+                Information about the status (e.g., active, inactive, pending) of events 
+                or party relationships
+            </td>
+        </tr>
+        <tr>
+            <td>EVENT ROLE</td>
+            <td>
+                Information about all of the PARTY's involved in an EVENT
+            </td>
+        </tr>
+        <tr>
+            <td>ROLE TYPE</td>
+            <td>
+                Information about the various PARTY ROLEs and EVENT ROLEs
+            </td>
+        </tr>
+    </table>
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 
