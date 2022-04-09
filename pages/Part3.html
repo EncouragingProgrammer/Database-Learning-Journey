@@ -100,8 +100,103 @@
         <dd>
             A serial number or other system-assigned primary key for a relation.
         </dd>
+        <dt>Recusive foreign key</dt>
+        <dd>
+            A foreign key in a relation that references the primary key values of the same relation.
+        </dd>
     </dl>
 
+    <ol>
+        <h4>Strategies to map supertype/subtype relationships</h4>
+        <li>Create a separate relation for the supertype and for each of its subtypes</li>
+        <li>Assign to the relation created for the supertype the attributes that are common to all 
+            members of the supertype, including the primary key</li>
+        <li>>Assign to the relation for each subtype the primary key of the supertype and only those 
+            attributes that are unique to that subtype</li>
+        <li>Assign one (or more) attributes of the supertype to function as the subtype discriminator. 
+            (The role of the subtype discriminator was discussed in Chapter 3.)</li>
+    </ol>
+
+    <table class="center">
+        <tr>
+            <th>EER Structure</th>
+            <th>Relational Representation (Sample Figure)</th>
+        </tr>
+        <tr>
+            <td>Regular entity</td>
+            <td>Create a relation with primary key and nonkey attributes</td>
+        </tr>
+        <tr>
+            <td>Composite attribute</td>
+            <td>
+                Each component of a composite attribute becomes a separate attribute in the target 
+                relation
+            </td>
+        </tr>
+        <tr>
+            <td>Multivalued attribute</td>
+            <td>
+                Create a separate relation for multivalued attribute with composite primary key, 
+                including the primary key of the entity
+            </td>
+        </tr>
+        <tr>
+            <td>Weak entity</td>
+            <td>
+                Create a relation with a composite primary key (which includes the primary key of 
+                the entity on which this entity depends) and nonkey attributes
+            </td>
+        </tr>
+        <tr>
+            <td>Binary or unary 1:N relationship</td>
+            <td>
+                Place the primary key of the entity on the one side of the relationship as a foreign 
+                key in the relation for the entity on the many side
+            </td>
+        </tr>
+        <tr>
+            <td>Binary or unary M:N relationship or associative entity without its own key</td>
+            <td>
+                Create a relation with a composite primary key using the primary keys of the related 
+                entities plus any nonkey attributes of the relationship or associative entity
+            </td>
+        </tr>
+        <tr>
+            <td>Binary or unary 1:1 relationship</td>
+            <td>
+                Place the primary key of either entity in the relation for the other entity; if one 
+                side of the relationship is optional, place the foreign key of the entity on the 
+                mandatory side in the relation for the entity on the optional side
+            </td>
+        </tr>
+        <tr>
+            <td>Binary or unary M:N relationship or associative entity with its own key</td>
+            <td>
+                Create a relation with the primary key associated with the associative entity plus 
+                any nonkey attributes of the associative entity and the primary keys of the related 
+                entities as foreign keys
+            </td>
+        </tr>
+        <tr>
+            <td>Ternary and n-ary relationships</td>
+            <td>
+                Same as binary M:N relationships above; without its own key, include as part of 
+                primary key of relation for the relationship or associative entity the primary keys 
+                from all related entities; with its own surrogate key, the primary keys of the associated 
+                entities are included as foreign keys in the relation for the relationship or associative 
+                entity
+            </td>
+        </tr>
+        <tr>
+            <td>Supertype/subtype relationship</td>
+            <td>
+                Create a relation for the superclass, which contains the primary and all nonkey attributes 
+                in common with all subclasses, plus create a separate relation for each subclass with the 
+                same primary key (with the same or local name) but with only the nonkey attributes related 
+                to that subclass
+            </td>
+        </tr>
+    </table>
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 
