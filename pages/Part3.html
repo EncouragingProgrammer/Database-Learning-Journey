@@ -198,6 +198,149 @@
         </tr>
     </table>
 
+    <h2>Unit 3 Section 2: Normalization</h2>
+
+    <dl>
+        <dt>Normalization</dt>
+        <dd>
+            The process of decomposing relations with anomalies to produce smaller, well-structured 
+            relations.
+        </dd>
+    </dl>
+
+    <h4>Main goals of Normalization</h4>
+    <ol>
+        <li>Minimize data redundancy, thereby avoiding anomalies and conserving storage space</li>
+        <li>Simplify the enforcement of referential integrity constraints</li>
+        <li>Make it easier to maintain data (insert, update, and delete)</li>
+        <li>
+            Provide a better design that is an improved Representation of the real world and a
+            stronger basis for future growth.
+        </li>
+    </ol>
+
+    <dl>
+        <dt>Normal form</dt>
+        <dd>
+            A state f a relation that requires that certain rules regarding relationships between
+            attributes (or functional dependencies) are satisfied.
+        </dd>
+    </dl>
+
+    <h4>Normalization Rules</h4>
+    <ol>
+        <li><strong>First normal form </strong>
+            - Any multivalued attributes (also called repeating groups) have been removed, so there
+            is a single value (possibly null) at the intersection of each row and collumn of the
+            table.    
+        </li>
+        <li><strong>Second normal form </strong>
+            - Any partial functional dependencies have been removed (ie., nonkey attributes are
+            identified by the whole primary key).
+        </li>
+        <li><strong>Third normal form </strong>
+            - Any transitive dependencies have been removed (ie., nonkey attributes are identified
+            by only the primary key)
+        </li>
+        <li><strong>Boyce-Codd normal form </strong>
+            - Any remaining anomalies that result from functional dependencies have been removed
+            (because there was more than one possible primary key for the same nonkeys).
+        </li>
+        <li><strong>Fourth normal form </strong>
+            - Any multivalued dependencies have been removed.
+        </li>
+        <li><strong>Fifth normal form </strong>
+            - Any remaining anomalies have been removed.
+        </li>
+    </ol>
+
+    <dl>
+        <dt>Functional dependency</dt>
+        <dd>
+            A constraint between two attributes in which the value of one attribute is determined
+            by the value of another attribute.
+        </dd>
+        <dt>Determinant</dt>
+        <dd>
+            The attribute on the left side of the arrow in a functional dependency.
+        </dd>
+        <dt>Candidate key</dt>
+        <dd>
+            An attribute, or combination of attributes, that uniquely identifies a row in a 
+            relation. 
+        </dd>
+    </dl>
+
+    <h4>A candidate key must satisfy the following properties:</h4>
+    <ol>
+        <li><strong>Unique identification </strong>
+            - For every row, the value of the key must uniquely identify that row. 
+            This property implies that each nonkey attribute is functionally 
+            dependent on that key.
+        </li>
+        <li><strong>Nonredundancy</strong>
+            - No attribute in the key can be deleted without destroying the property
+            of uniqye identification.
+        </li>
+    </ol>
+
+    <dl>
+        <dt>First normal form (1NF)</dt>
+        <dd>
+            A relation that has a primary key and in which there are no repeating groups.
+        </dd>
+        <dt>Second normal form (2NF)</dt>
+        <dd>
+            A relation in first normal form in which every nonkey attribute is fully
+            functionally dependent on the primary key. 
+        </dd>
+        <dt>Partial functional dependency</dt>
+        <dd>
+            A functional dependency in which one or more nonkey attributes are functionally
+            dependent on part (but not all) of the primary key.
+        </dd>
+        <dt>Third normal form (3NF)</dt>
+        <dd>
+            A relation that is in second normal orm and has no transitive dependencies.
+        </dd>
+        <dt>Transitive deendency</dt>
+        <dd>
+            A functional dependency between the primary key and one or more nonkey
+            attributes that are dependent on the primary key via another nonkey attribute.
+        </dd>
+        <dt>Boyce-Codd normal form (BCNF)</dt>
+        <dd>
+            A normal form of a relation in which every determinant is a candidate key.
+        </dd>
+        <dt>Multivalued dependency</dt>
+        <dd>
+            The type of dependency that exists when there are at least three attributes
+            (e.g., A, B, and C) in a relation, with a well-defined set of B and C values
+            for each A value, but those B and C values are independent of each other.
+        </dd>
+        <dt>Fourth normal form (4NF)</dt>
+        <dd>
+            A normal form of a relation in which the relation is in BCNF and contains no
+            multivalued dependencies.
+        </dd>
+        <dt>Synonyms</dt>
+        <dd>
+            Two (or more) attributes that have different names but the same meaning.
+        </dd>
+        <dt>Alias</dt>
+        <dd>
+            An alternative name used for an attribute.
+        </dd>
+        <dt>Homonyms</dt>
+        <dd>
+            An attribute that may have more than one meaning.
+        </dd>
+        <dt>Enterprise key</dt>
+        <dd>
+            A primary key whose kalue is unique across all relations.
+        </dd>
+    </dl>
+
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 
 </body>
