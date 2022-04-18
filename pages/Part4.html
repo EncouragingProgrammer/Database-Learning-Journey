@@ -18,6 +18,224 @@
     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
     encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <footer><a href="../pages/Citations.html">Citations</a></footer>
+    <dl>
+        <dt>Field</dt>
+        <dd>
+            The smallest unit of application data recognized by system software.
+        </dd>
+        <dt>Data type</dt>
+        <dd>
+            A detailed coding scheme reognized by system software, such as a DBMS, for representing
+            organizational data. Selecting a data type involves four objectives:
+            <ol>
+                <li>Representing all possible values.</li>
+                <li>Improve data integrity.</li>
+                <li>Suport all data manipulations.</li>
+                <li>Minimize storage space.</li>
+            </ol>
+        </dd>
+        <dt>Denormalization</dt>
+        <dd>
+            The process of transforming normalized relations into non-normalized physical record
+            specifications. A few common denormalization opportunities include:
+            <ol>
+                <li>Two entities with a one-to-one relationship.</li>
+                <li>A many-to-many relationship (associative entity) with nonkey attributes</li>
+                <li>Reference data</li>
+            </ol>
+        </dd>
+        <dt>Horizontal partitioning</dt>
+        <dd>
+            Distribution of the rows of a logical relation into several separate tables.
+        </dd>
+    </dl>
 
+    <h4>Advantages and Disadvantages of Data Partitioning</h4>
+    <ol>
+        <h5>Advantages of Partitioning</h5>
+        <li><em>Efficiency:</em>
+            Data queried together are stored close to one another and separate from data not used
+            together. Data maintenance is isolated in smaller partitions.
+        </li>
+        <li><em>Local optimizations:</em>
+            Each partition of data can be stored to optimize performance for its own use.    
+        </li>
+        <li><em>Security:</em>
+            Data not relevant to one group of users can be segregated from data those users are
+            allowed to use. 
+        </li>
+        <li><em>Recovery and uptime:</em>
+            Smaller files take less time to back up and recover, and other files are still accessible
+            if one file is damaged, so the effects of damage are isolated. 
+        </li>
+        <li><em>Load balancing:</em>
+            Files can be allocated to different storage areas (disks or other media), which minimizes
+            contention for access to the same storage area or even allows for parallel access to the 
+            different areas.
+        </li>
+    </ol>
+    <ol>
+        <h5>Disadvantages of Partitioning</h5>
+        <li><em>Inconsistent access speed:</em>
+            Different partitions may have different access speeds, thus confusing users. Also, when
+            data must be combined across partitions, users may have to deal with significantly slower
+            response times than in a non-partitioned approach.
+        </li>
+        <li><em>Complexity:</em>
+            Partitioning is usually not transparent to programmers, who will have to write more 
+            complex programs when combining data across partitions.
+        </li>
+        <li><em>Extra space and update time:</em>
+            Data may be duplicated across the partitions, taking extra storage space compared to storing
+            all the data in multiple partitions can take more time than if one file were used.
+        </li>
+    </ol>
+    <ol>
+        <h5>Data Distribution Methods as Partitioning Approaches</h5>
+        <li><em>Range partitioning</em></li>
+        <li><em>Hash partitioning</em></li>
+        <li><em>List partitioning</em></li>
+    </ol>
+    
+    <dl>
+        <dt>Vertical partitioning</dt>
+        <dd>
+            Distrution of the columns of a logical relation into several separate physical tables.
+        </dd>
+        <dt>Physical file</dt>
+        <dd>
+            A named portion of secndary memory (such as a hard disk) allocated for the purpose of
+            sorting physical records.
+        </dd>
+        <dt>Tablespace</dt>
+        <dd>
+            A named logical storage unit in which data from one or more database tables, views, or
+            other database objects may be stored.
+        </dd>
+        <dt>Extent</dt>
+        <dd>
+            A contiguous section of disk storage space.
+        </dd>
+        <dt>File organization</dt>
+        <dd>
+            A technique for physically arranging the records of a file on secondary storage devices.
+            When choosing file organization for a particular file in a database, consider these
+            factors:
+            <ol>
+                <li>Fast data retrieval</li>
+                <li>High throughput for processing data input and maintenance transcations</li>
+                <li>Efficient use of storage space</li>
+                <li>Protection from failures or data loss</li>
+                <li>Minimizing need for reorgaization</li>
+                <li>Acommodating growth</li>
+                <li>Security from unauthorized use</li>
+            </ol>
+        </dd>
+        <dt>Sequential file organization</dt>
+        <dd>
+            The storage of records in a file in sequence according to a primary key value.
+        </dd>
+        <dt>Indexed file organization</dt>
+        <dd>
+            The storage of records either sequentially or nonsequentially with an index that
+            allows software to locate individual records.
+        </dd>
+        <dt>Index</dt>
+        <dd> 
+            A table or other data structure used to determine in a file the location of records
+            satisfiy some condition. 
+        </dd>
+        <dt>Secondary Key</dt>
+        <dd>
+            One field or a combination of fields for which more than one record may have the same
+            combination of values. ALso called a nonunique key.
+        </dd>
+        <dt>Join index</dt>
+        <dd>
+            An index on columns from two or more tables that come from the same domain of values.
+        </dd>
+        <dt>Hashed file organization</dt>
+        <dd>
+            A storage system in which the address for each record is determined using a hasing
+            algorithm.
+        </dd>
+        <dt>Hasing algorithm</dt>
+        <dd>
+            A routine that converts a primary key value into a relative record number of relative
+            file adress.
+        </dd>
+        <dt>Hash index table</dt>
+        <dd>
+            A file organization that uses hasing to map a key into a location in an index, where
+            there is a pointer to the actual data record matching the hash key.
+        </dd>
+        <dt>Pointer</dt>
+        <dd>
+            A field of data indicating a target address that can be used to locate a related
+            field or record of data.
+        </dd>
+    </dl>
+
+    <h4 class="center">Comparative Features of Different File Organizations</h4>
+    <table class="center">
+        <tr>
+            <th>Factor</th>
+            <th>Sequential</th>
+            <th>Indexed</th>
+            <th>Hashed</th>
+        </tr>
+        <tr>
+            <td>Storage space</td>
+            <td>No wasted space</td>
+            <td>No wasted space for data but extra space for index</td>
+            <td>
+                Extra space may be needed to allow for addition and deletion of records after
+                the initial set of records is loaded.
+            </td>
+        </tr>
+        <tr>
+            <td>Sequential retrieval on primary key</td>
+            <td>Very fast</td>
+            <td>Moderately fast</td>
+            <td>Impractical, unless using a hash index</td>
+        </tr>
+        <tr>
+            <td>Random retrieval on primary key</td>
+            <td>Impractical</td>
+            <td>Moderately fast</td>
+            <td>Very fast</td>
+        </tr>
+        <tr>
+            <td>Multiple-key retrieval</td>
+            <td>Possible but requires scanning whole file</td>
+            <td>Very fast with multiple indexes</td>
+            <td>Not possible unless using a hash index</td>
+        </tr>
+        <tr>
+            <td>Deleting records</td>
+            <td>Can create wasted space or require reorganizing</td>
+            <td>
+                If space can be dynamically allocated, this is easy but requires maintenance
+                of indexes
+            </td>
+            <td>Very easy</td>
+        </tr>
+        <tr>
+            <td>Adding new records</td>
+            <td>Requires rewriting a file</td>
+            <td>
+                If space can be dynamically allocated, this is easy but requires maintenance
+                of indexes
+            </td>
+            <td>Very easy, but multiple keys with the same address require extra work</td>
+        </tr>
+        <tr>
+            <td>Updating records</td>
+            <td>Usually requires rewriting a file</td>
+            <td>Easy but requires maintenance of indexes</td>
+            <td>Very easy</td>
+        </tr>
+    </table>
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
 </body>
