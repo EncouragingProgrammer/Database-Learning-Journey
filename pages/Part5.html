@@ -1,0 +1,315 @@
+<html lang="en">
+<head>
+	<title>Database Management Learning Journey - Part 5</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
+
+	<h2>Unit 5 Section 1: SQL as a Data Definition Language (DDL)</h2>
+
+    <h3>Lecture 5 by Daniel Gaudreault</h3>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/MggWgy0dABY?start=106" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p>
+        <h3>Supplemental SQL / Database courses</h3>
+        <p>
+            I highly recommend the following LinkedIn Learning courses:
+        </p>
+        <ul>
+            <li>
+                <a href="https://www.linkedin.com/learning/sql-essential-training-3/">
+                    LinkedIn Learning Course - SQL Essential Training</a> by <a href="https://bw.org/">Bill Weinmann</a>
+                <p>
+                    This courses focuses on the SQL language and is very beneficial for supplementing this chapter
+                    of the textbook.
+                </p>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/learning/database-foundations-intro-to-databases/">LinkedIn
+                    Learning Course - Database Foundations: Intro to Databases</a> by <a href="https://adamwilbert.com/">
+                        Adam Wilbert</a>
+                <p>
+                    This course demonstrates using Microsoft SQL Server and PostgreSQL through docker containers,
+                    and the Azure Data Studio RDBMS.
+                </p>       
+            </li>
+        </ul>
+
+    </p>
+
+    <h4>Benefits of a Standardized Relational Language</h4>
+    <ul>
+        <li>Reduced training costs</li>
+        <li>Productivity</li>
+        <li>Application portability</li>
+        <li>Application longevity</li>
+        <li>Reduced dependence on a single vendor</li>
+        <li>Cross-system communication</li>
+    </ul>
+
+    <dl>
+        <dt>Relational DBMS</dt>
+        <dd>
+            A database management system that manages data as a collection of tables in which all
+            data relationships are represented by common values in related tables.
+        </dd>
+        <dt>Catalog</dt>
+        <dd>
+            A set of schemas that, when put together, contitutes a description of a database.
+        </dd>
+        <dt>Schema</dt>
+        <dd>
+            A structure that contains descripions of objects created by a user, such as base tables,
+            views, and constraints, as part of a database.
+        </dd>
+        <dt>data definition language (DDL)</dt>
+        <dd>
+            Commands used to define a database, including those for creating, altering, and dropping
+            tables and established constraints.
+        </dd>
+        <dt>data manipulation language (DML)</dt>
+        <dd>
+            Commands used to maintain and query a database, including those for updating, inserting,
+            modifying and querying data.
+        </dd>
+        <dt>Data control language (DCL)</dt>
+        <dd>
+            Commands used to control a database, including those for administering privileges and
+            committing (saving) data.
+        </dd>
+    </dl>
+
+    <p>
+        Basic syntax for creating a database using SQL is:<br><br>
+        <code>
+            CREATE SCHEMA database_name; AUTHORIZATION owner_user id
+        </code>
+    </p>
+
+    <h4 class="center">SQL DDL CREATE Commands:</h4>
+    <table class="center">
+        <tr>
+            <td>CREATE SCHEMA</td>
+            <td>
+                Used to define the portion of a database that a particular user owns. Schemas are 
+                dependent on a catalog and contain schema objects, including base tables and views, 
+                domains, constraints, assertions, character sets, collations, and so forth.
+            </td>
+        </tr>
+        <tr>
+            <td>CREATE TABLE</td>
+            <td>
+                Defines a new table and its columns. The table may be a base table or a derived table. 
+                Tables are dependent on a schema. Derived tables are created by executing a query that 
+                uses one or more tables or views.
+            </td>
+        </tr>
+        <tr>
+            <td>CREATE VIEW</td>
+            <td>
+                Defines a logical table from one or more tables or views. Views may not be indexed. 
+                There are limitations on updating data through a view. Where views can be updated, 
+                those changes can be transferred to the underlying base tables originally referenced 
+                to create the view.
+            </td>
+        </tr>
+    </table>
+    
+    <p>
+        SQL Inserting into a table:<br><br>
+        <code>
+            INSERT INTO Customer_T VALUES<br>
+            ('Friendship Castle', '123 Unicorn Road', 'FriendshipVille', 'FN', 12345);
+        </code>
+    </p>
+
+    <p>
+        SQL Deteling rows from a table:<br><br>
+        <code>
+            DELETE FROM Customer_T<br>
+            WHERE CustomerState = 'FN';
+        </code>
+        <p>
+            Note: it is wise to verify with SELECT rows you intend to delete, and check that only desired rows
+            are icluded.
+        </p>
+    </p>
+
+    <p>
+        SQL Update:<br><br>
+        <code>
+            UPDATE Product_T<br>
+            SET ProductStandardPrice = 700<br>
+                WHERE ProductID = 7;
+        </code>
+    </p>
+
+    <p>
+        SQL Create Index:<br><br>
+        <code>
+            CREATE INDEX Name_IDX ON Customer_T (CustomerName);
+        </code>
+        <br><br> SQL Drop Index: <br><br>
+        <code>
+            DROP INDEX Name_IDX;
+        </code>
+    </p>
+
+    <h4 class="center">Clauses of the SELECT Statement:</h4>
+    <table class="center">
+        <tr>
+            <td>SELECT</td>
+            <td>
+                Lists the columns (including expressions involving columns) from base tables, derived tables, 
+                or views to be projected into the table that will be the result of the command. (That’s the 
+                technical way of saying it lists the data you want to display.)
+            </td>
+        </tr>
+        <tr>
+            <td>FROM</td>
+            <td>
+                Identifies the tables, derived tables, or views from which columns will be chosen to appear 
+                in the result table and includes the tables, derived tables, or views needed to join tables 
+                to process the query.
+            </td>
+        </tr>
+        <tr>
+            <td>WHERE</td>
+            <td>
+                Includes the conditions for row selection within the items in the FROM clause and the conditions 
+                between tables, derived tables, or views for joining. Because SQL is considered a set manipulation 
+                language, the WHERE clause is important in defining the set of rows being manipulated.
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <strong>Query: </strong>Which products have a standard price of less than $275?<br><br>
+        <code>
+            SELECT ProductDescription, ProductStandardPrice<br>
+                FROM Product_T<br>
+                    WHERE ProductStandardPrice &#60; 275;
+        </code>
+    </p>
+
+    <p>
+        <strong>Query: </strong>How many different items were ordered on order number 1004?<br><br>
+        <code>
+            SELECT COUNT (*)<br>
+                FROM OrderLine_T<br>
+                    WHERE OrderID = 1004;
+        </code>
+    </p>
+
+    <p>
+        <strong>Query: </strong>List product name, finish, and standard price for all desks and all 
+        tables that cost more than $300 in the Product table.<br><br>
+        <code>
+            SELECT ProductDescription, ProductFinish, ProductStandardPrice <br>
+                FROM Product_T<br>
+                    WHERE (ProductDescription LIKE ′%Desk′<br>
+                        OR ProductDescription LIKE ′%Table′)<br>     
+                        AND ProductStandardPrice &#62; 300;
+        </code>
+    </p>
+
+    <p>
+        <strong>Query: </strong>What are the distinct order numbers included in the OrderLine table?<br><br>
+        <code>
+            SELECT DISTINCT OrderID<br>
+                FROM OrderLine_T;
+        </code>
+    </p>
+
+    <p>
+        <strong>Query: </strong>List all customers who live in warmer states.<br><br>
+        <code>
+            SELECT CustomerName, CustomerCity, CustomerState<br>
+                FROM OrderLine_T<br>
+                    WHERE CustomerState IN ('FL', 'TX', 'CA', 'HI');
+        </code>
+    </p>
+
+    <h4 class="center">SQL Order By, Group By, and Having</h4>
+    <table class="center">
+        <tr>
+            <td>ORDER BY</td>
+            <td>
+                Sorts the final results rows in ascending or descending order.
+            </td>
+        </tr>
+        <tr>
+            <td>GROUP BY</td>
+            <td>
+                Groups rows in an intermediate results table where the values in those rows
+                are the same for one or more columns.
+            </td>
+        </tr>
+        <tr>
+            <td>HAVING</td>
+            <td>
+                Can only be used following a GROUP BY and acts as a secondary WHERE clause,
+                returning only those groups that meet a specific condition.
+            </td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Scalar aggregate</dt>
+        <dd>
+            A single value returned from an SQL query that icludes an aggregate function.
+        </dd>
+        <dt>Vector aggregate</dt>
+        <dd>
+            Multiple values retured from an SQL query that icludes an aggregate function.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Query: </strong>Find only states with more than one customer.<br><br>
+        <code>
+            SELECT CustomerState, COUNT (CustomerState)<br>
+                FROM Customer_T<br>
+                    GROUP BY CustomerState<br>
+                    HAVING COUNT (CustomerState) &#62; 1;
+        </code>
+    </p>
+
+    <dl>
+        <dt>Base table</dt>
+        <dd>
+            A table in the relational data model containing the inserted raw data. Base tables
+            correspond to the relations that are identified in the database's conceptual
+            schema.
+        </dd>
+        <dt>Virtual table</dt>
+        <dd>
+            A table constructed automatically as needed by a DBMS. Virtual tables are not
+            maintained as real data.
+        </dd>
+        <dt>Dynamic view</dt>
+        <dd>
+            A virtual table that is created dynamically upon request by a user. A dynamic view
+            is not a temporary table. Rather, its definition is stored in the system catalog,
+            and the contents of the view are materialized as a result of an SQL query that uses
+            the view. It differs from a materialized view, which may be stored on a disc and 
+            refreshed at intervals or when used, depending on the RDBMS.
+        </dd>
+        <dt>Materialized view</dt>
+        <dd>
+            Copies or replicas of data, based on SQL queries created in the same manner as
+            dynamic views. However, a materialized view exits as a table and thus care must be
+            taken to keep it synchronized with its associated base tables.
+        </dd>
+    </dl>
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
+</body>
