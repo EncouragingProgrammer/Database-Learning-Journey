@@ -88,10 +88,10 @@
     </dl>
 
     <p>
-        Basic syntax for creating a database using SQL is:<br><br>
-        <code>
+        Basic syntax for creating a database using SQL is:
+        <pre><code>
             CREATE SCHEMA database_name; AUTHORIZATION owner_user id
-        </code>
+        </code></pre>
     </p>
 
     <h4 class="center">SQL DDL CREATE Commands:</h4>
@@ -123,20 +123,22 @@
         </tr>
     </table>
     
+    <h2>Unit 5 Section 2: SQL as a Data Maninpulation Language (DML)</h2>
+
     <p>
-        SQL Inserting into a table:<br><br>
-        <code>
-            INSERT INTO Customer_T VALUES<br>
+        SQL Inserting into a table:
+        <pre><code>
+            INSERT INTO Customer_T VALUES
             ('Friendship Castle', '123 Unicorn Road', 'FriendshipVille', 'FN', 12345);
-        </code>
+        </code></pre>
     </p>
 
     <p>
-        SQL Deteling rows from a table:<br><br>
-        <code>
-            DELETE FROM Customer_T<br>
+        SQL Deteling rows from a table:
+        <pre><code>
+            DELETE FROM Customer_T
             WHERE CustomerState = 'FN';
-        </code>
+        </code></pre>
         <p>
             Note: it is wise to verify with SELECT rows you intend to delete, and check that only desired rows
             are icluded.
@@ -144,23 +146,23 @@
     </p>
 
     <p>
-        SQL Update:<br><br>
-        <code>
-            UPDATE Product_T<br>
-            SET ProductStandardPrice = 700<br>
+        SQL Update:
+        <pre><code>
+            UPDATE Product_T
+            SET ProductStandardPrice = 700
                 WHERE ProductID = 7;
-        </code>
+        </code></pre>
     </p>
 
     <p>
-        SQL Create Index:<br><br>
-        <code>
+        SQL Create Index:
+        <pre><code>
             CREATE INDEX Name_IDX ON Customer_T (CustomerName);
-        </code>
-        <br><br> SQL Drop Index: <br><br>
-        <code>
+        </code></pre>
+        SQL Drop Index: 
+        <pre><code>
             DROP INDEX Name_IDX;
-        </code>
+        </code></pre>
     </p>
 
     <h4 class="center">Clauses of the SELECT Statement:</h4>
@@ -192,50 +194,50 @@
     </table>
 
     <p>
-        <strong>Query: </strong>Which products have a standard price of less than $275?<br><br>
-        <code>
-            SELECT ProductDescription, ProductStandardPrice<br>
-                FROM Product_T<br>
+        <strong>Query: </strong>Which products have a standard price of less than $275?
+        <pre><code>
+            SELECT ProductDescription, ProductStandardPrice
+                FROM Product_T
                     WHERE ProductStandardPrice &#60; 275;
-        </code>
+        </code></pre>
     </p>
 
     <p>
-        <strong>Query: </strong>How many different items were ordered on order number 1004?<br><br>
-        <code>
-            SELECT COUNT (*)<br>
-                FROM OrderLine_T<br>
+        <strong>Query: </strong>How many different items were ordered on order number 1004?
+        <pre><code>
+            SELECT COUNT (*)
+                FROM OrderLine_T
                     WHERE OrderID = 1004;
-        </code>
+        </code></pre>
     </p>
 
     <p>
         <strong>Query: </strong>List product name, finish, and standard price for all desks and all 
-        tables that cost more than $300 in the Product table.<br><br>
-        <code>
-            SELECT ProductDescription, ProductFinish, ProductStandardPrice <br>
-                FROM Product_T<br>
-                    WHERE (ProductDescription LIKE ′%Desk′<br>
-                        OR ProductDescription LIKE ′%Table′)<br>     
+        tables that cost more than $300 in the Product table.
+        <pre><code>
+            SELECT ProductDescription, ProductFinish, ProductStandardPrice
+                FROM Product_T
+                    WHERE (ProductDescription LIKE ′%Desk′
+                        OR ProductDescription LIKE ′%Table′)   
                         AND ProductStandardPrice &#62; 300;
-        </code>
+        </code></pre>
     </p>
 
     <p>
-        <strong>Query: </strong>What are the distinct order numbers included in the OrderLine table?<br><br>
-        <code>
-            SELECT DISTINCT OrderID<br>
+        <strong>Query: </strong>What are the distinct order numbers included in the OrderLine table?
+        <pre><code>
+            SELECT DISTINCT OrderID
                 FROM OrderLine_T;
-        </code>
+        </code></pre>
     </p>
 
     <p>
-        <strong>Query: </strong>List all customers who live in warmer states.<br><br>
-        <code>
-            SELECT CustomerName, CustomerCity, CustomerState<br>
-                FROM OrderLine_T<br>
+        <strong>Query: </strong>List all customers who live in warmer states.
+        <pre><code>
+            SELECT CustomerName, CustomerCity, CustomerState
+                FROM OrderLine_T
                     WHERE CustomerState IN ('FL', 'TX', 'CA', 'HI');
-        </code>
+        </code></pre>
     </p>
 
     <h4 class="center">SQL Order By, Group By, and Having</h4>
@@ -274,13 +276,13 @@
     </dl>
 
     <p>
-        <strong>Query: </strong>Find only states with more than one customer.<br><br>
-        <code>
-            SELECT CustomerState, COUNT (CustomerState)<br>
-                FROM Customer_T<br>
-                    GROUP BY CustomerState<br>
+        <strong>Query: </strong>Find only states with more than one customer.
+        <pre><code>
+            SELECT CustomerState, COUNT (CustomerState)
+                FROM Customer_T
+                    GROUP BY CustomerState
                     HAVING COUNT (CustomerState) &#62; 1;
-        </code>
+        </code></pre>
     </p>
 
     <dl>
@@ -308,6 +310,307 @@
             Copies or replicas of data, based on SQL queries created in the same manner as
             dynamic views. However, a materialized view exits as a table and thus care must be
             taken to keep it synchronized with its associated base tables.
+        </dd>
+    </dl>
+
+    <h2>Unit 5 Section 3: Advanced SQL and Data Control Commands</h2>
+
+    <dl>
+        <dt>Join</dt>
+        <dd>
+            A relational operation that causes two tables with a common domain to be combined
+            into a single table or view.
+        </dd>
+        <dt>Equi-join</dt>
+        <dd>
+            A join in which the joining condition is based on equality between values in the
+            common columns. Common columns appear (redundantly) in the result table.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Query: </strong>What are the customer IDs and names of all customers, along
+            with the order IDs or all the orders they have placed?
+        <pre><code>
+            SELECT Customer_T.CustomerID, Order_T.CustomerID, CustomerName, OrderID
+                FROM Customer_T INNER JOIN Order_T USING CustomerID
+                    ORDER BY OrderID;
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>Natural join</dt>
+        <dd>
+            A join that is the same as an equi-join except that one of the duplicate columns
+            is eliminated in the result table.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Query: </strong>For each customer who has placed an order, what is the customer's
+            ID, name, and order number?
+        <pre><code>
+            SELECT Customer_T.CustomerID, CustomerName, OrderID
+                FROM Customer_T NATURAL JOIN Order_T ON Customer_T.CustomerID = Order_T.CustomerID;
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>Outer join</dt>
+        <dd>
+            A join in which rows that do not have matching values in common columns are nevertheless
+            included in the result table.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Query: </strong>What are the employee ID and name of each employee and the name of
+            his or her supervisor (label the supervisor's name Manager)?
+        <pre><code>
+            SELECT E.EmployeeID, E.EmployeeName, M.EmployeeName AS Manager
+                FROM Employee_T E, Employee_T M
+                    WHERE E.EmployeeSupervisor = M.EmployeeID;
+        </code></pre>
+    </p>
+
+    <p>
+        <strong>Query: </strong>What are the names of customers who have placed orders?
+        <pre><code>
+            SELECT CustomerName
+                FROM Customer_T
+                    WHERE CustomerID IN
+                        (SELECT DISTINCT CustomerID
+                         FROM Order_T);
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>Correlated subquery</dt>
+        <dd>
+            In SQL, a subquery in which processing the inner query depends on data from the
+            outer query.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Query: </strong>Show the product description, product standard price, and overall
+        average standard price for all products that have a standard price that is higher than the
+        average standard price.
+       <pre><code>
+            SELECT ProductDescription, ProductStandardPrice, AvgPrice
+                FROM (SELECT AVG(ProductStandardPrice) AvgPrice FROM Product_T), Product_T
+                    WHERE ProductStandardPrice > AvgPrice;
+        </code></pre>
+    </p>
+
+    <p>
+        <strong>Query: </strong>Who is the owner of the PRODUCT_T table?
+        <pre><code>
+            SELECT OWNER, TABLE_NAME
+                FROM DBA_TABLES
+                    WHERE TABLE_NAME = 'PRODUCT_T';
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>User-defined data type (UDT)</dt>
+        <dd>
+            A data type that a user can define by making it a subclass of a standard type or creating
+            a type that behaves as an object. UDTs may also have defined functions and methods.
+        </dd>
+    </dl>
+
+    <h4 class="center">Some Built-in Functions Added in SQL:200n</h4>
+    <table class="center">
+        <tr>
+            <th>Function</th>
+            <th>Descripion</th>
+        </tr>
+        <tr>
+            <td>CEILING</td>
+            <td>
+                Computes the least integer greater than or equal to its argument - for example,
+                CEIL(100) or CEILING(100).
+            </td>
+        </tr>
+        <tr>
+            <td>FLOOR</td>
+            <td>
+                Computes the greatest integer less than or equal to its argument — for example, FLOOR(25).
+            </td>
+        </tr>
+        <tr>
+            <td>SQRT</td>
+            <td>
+                Computes the square root of its argument — for example, SQRT(36).
+            </td>
+        </tr>
+        <tr>
+            <td>RANK</td>
+            <td>
+                Computes the ordinal rank of a row within its window. Implies that if duplicates exist, 
+                there will be gaps in the ranks assigned. The rank of the row is defined as 1 plus the 
+                number of rows preceding the row that are not peers of the row being ranked.
+            </td>
+        </tr>
+        <tr>
+            <td>DENSE_RANK</td>
+            <td>
+                Computes the ordinal rank of a row within its window. Implies that if duplicates exist, 
+                there will be no gaps in the ranks assigned. The rank of the row is the number of distinct 
+                rows preceding the row and itself.
+            </td>
+        </tr>
+        <tr>
+            <td>ROLLUP</td>
+            <td>
+                Works with GROUP BY to compute aggregate values for each level of the hierarchy specified 
+                by the group by columns, (The hierarchy is assumed to be left to right in the list of GROUP 
+                BY columns.)
+            </td>
+        </tr>
+        <tr>
+            <td>CUBE</td>
+            <td>
+                Works with GROUP BY to create a subtotal of all possible columns for the aggregate specified.
+            </td>
+        </tr>
+        <tr>
+            <td>SAMPLE</td>
+            <td>
+                Reduces the number of rows by returning one or more random samples (with or without replacement). 
+                (This function is not ANSI SQL-2003 compliant but is available with many RDBMSs.)
+            </td>
+        </tr>
+        <tr>
+            <td>OVER or WINDOW</td>
+            <td>
+                Creates partitions of data, based on values of one or more columns over which other analytical 
+                functions (e.g., RANK) can be computed.
+            </td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Persistent Stored Modules (SQL/PSM)</dt>
+        <dd>
+            Extensions defined in SQL:1999 that include the capability to create and drop modules of code
+            stored in the database schema across user sessions.
+        </dd>
+    </dl>
+
+    <h4 class="center">SQL/PSM control statements</h4>
+    <table class="center">
+        <tr>
+            <th>Statement</th>
+            <th>Descripion</th>
+        </tr>
+        <tr>
+            <td>CASE</td>
+            <td>
+                Executes different sets of SQL sequences, according to a comparison of values or the value 
+                of a WHEN clause, using either search conditions or value expressions. The logic is similar 
+                to that of an SQL CASE expression, but it ends with END CASE rather than END and has no 
+                equivalent to the ELSE NULL clause.
+            </td>
+        </tr>
+        <tr>
+            <td>IF</td>
+            <td>
+                If a predicate is TRUE, executes an SQL statement. The statement ends with an ENDIF and 
+                contains ELSE and ELSEIF statements to manage flow control for different conditions.
+            </td>
+        </tr>
+        <tr>
+            <td>LOOP</td>
+            <td>
+                Causes a statement to be executed repeatedly until a condition exists that results in an exit.
+            </td>
+        </tr>
+        <tr>
+            <td>LEAVE</td>
+            <td>
+                Sets a condition that results in exiting a loop.
+            </td>
+        </tr>
+        <tr>
+            <td>FOR</td>
+            <td>
+                Executes once for each row of a result set.
+            </td>
+        </tr>
+        <tr>
+            <td>WHILE</td>
+            <td>
+                Executes as long as a particular condition exists. Incorporates logic that functions as a 
+                LEAVE statement.
+            </td>
+        </tr>
+        <tr>
+            <td>REPEAT</td>
+            <td>
+                Similar to the WHILE statement, but tests the condition after execution of the SQL statement.
+            </td>
+        </tr>
+        <tr>
+            <td>ITERATE</td>
+            <td>
+                Restarts a loop.
+            </td>
+        </tr>
+
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Triggers</dt>
+        <dd>
+            A named set of SQL statements that are considered (triggered) when a data modification (i.e., 
+            INSERT, UPDATE, DELETE) occurs or if certain data definitions are encountered. If a condition
+            stated within a trigger is met, then a prescribed action is taken.
+        </dd>
+    </dl>
+
+    <p>
+        <strong>Trigger example</strong>
+        <pre><code>
+            CREATE TRIGGER StandardPriceUpdate
+            AFTER UPDATE OF ProductStandardPrice ON Product_T
+            FOR EACH ROW
+            INSERT INTO PriceUpdates_T VALUES (ProductDescription, SYSDATE, ProductStandardPrice)
+        </code></pre>
+    </p>
+
+    <p>
+        <strong>Trigger example: Safety check</strong>
+        <pre><code>
+            CREATE TRIGGER Satefy
+            ON DATABASE
+            FOR DROP_TABLE, ALTER_TABLE
+            AS
+                PRINT 'You must disable Trigger "safety" to drop or alter tables!'
+                ROLLBACK;
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>Function</dt>
+        <dd>
+            A stored subroutine that returns one value and has only input parameters.
+        </dd>
+        <dt>Procedure</dt>
+        <dd>
+            A collection of procedural and SQL statements that are assigned a unique name within
+            the schema and stored in the database.
+        </dd>
+        <dt>Embedded SQL</dt>
+        <dd>
+            Hard-coded SQL statements included in a program written in another language, such as
+            C or Java.
+        </dd>
+        <dt>Dynamic SQL</dt>
+        <dd>
+            Specific SQL code generated on the fly while an application is processing.
         </dd>
     </dl>
 
