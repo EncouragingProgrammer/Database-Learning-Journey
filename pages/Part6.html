@@ -32,8 +32,194 @@
             after it is written to achieve better performance and interoperability (ability of a
             component to function on different platforms).
         </dd>
+        <dt>Fat client</dt>
+        <dd>
+            A client PC that is responsible for processing presentation logic, extensive application 
+            and business rules logic, and many DBMS functions.
+        </dd>
+        <dt>Database server</dt>
+        <dd>
+            A computer that is responsible for database storage, access, and processing in a client/server
+            environment. Some people also use this term to describe a two-tier client/server application.
+        </dd>
+        <dt>Middleware</dt>
+        <dd>
+            Software that allows an application to interoperate with other software without requiring
+            the user to understand and code the low-level operations necessary to achieve interoperability.
+        </dd>
+        <dt>Application program interface (API)</dt>
+        <dd>
+            Sets of routines that an application program uses to direct the performance of procedures
+            by the computer's operating system.
+        </dd>
+        <dt>Open database connectivitiy (OBDC)</dt>
+        <dd>
+            An application programming interface that provides a common language for application programs
+            to access and process SQL databases independent of the particular DBMS that is accessed.
+        </dd>
     </dl>
 
+    <h4>Basic steps for accessing a database:</h4>
+    <ol>
+        <li>Identify and register a database driver.</li>
+        <li>Open a connection to a database.</li>
+        <li>Execute a query against the database.</li>
+        <li>Process the results of the query.</li>
+        <li>Repeat steps 3-4 as necessary.</li>
+        <li>Close the connection to the database.</li>
+    </ol>
+
+    <h4 class="center">Common Java-to-SQL Mappings</h4>
+    <table class="center">
+        <tr>
+            <th>SQL Type</th>
+            <th>Java Type</th>
+            <th>Common Get/Set Methods</th>
+        </tr>
+        <tr>
+            <td>INTEGER</td>
+            <td>int</td>
+            <td>getInt(), setInt()</td>
+        </tr>
+        <tr>
+            <td>CHAR</td>
+            <td>String</td>
+            <td>getString(), setString()</td>
+        </tr>
+        <tr>
+            <td>VARCHAR</td>
+            <td>String</td>
+            <td>getString(), setString()</td>
+        </tr>
+        <tr>
+            <td>DATE</td>
+            <td>java.util.Date</td>
+            <td>getDate(), setDate()</td>
+        </tr>
+        <tr>
+            <td>TIME</td>
+            <td>java.sql.Time</td>
+            <td>getTime(), setTime()</td>
+        </tr>
+        <tr>
+            <td>TIMESTAMP</td>
+            <td>java.sql.Timestamp</td>
+            <td>getTimestamp(), setTimestamp()</td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Three-tier architecture</dt>
+        <dd>
+            A client/server configuration that includes three layers: a client layer and
+            two server layers. Although the nature of the server layers differs, a common
+            configuration contains an application server and a database server.
+        </dd>
+        <dt>Thin client</dt>
+        <dd>
+            An application where the client (PC) accessing the application primarily
+            provides the user interfaces and some application processing, usually with
+            no or limited data storage.
+        </dd>
+    </dl>
+
+    <h4>Web Application Components</h4>
+    <ol>
+        <li>A database server</li>
+        <li>A Web server</li>
+        <li>An application server</li>
+        <li>A Web browser</li>
+    </ol>
+
+    <dl>
+        <dt>World Wide Web Consortium (W3C)</dt>
+        <dd>
+            An international consortium of companies working to develop open standards
+            that foster the development of Web convetions so that Web documents can be
+            consistently displayed across all platforms.
+        </dd>
+        <dt>XHTML</dt>
+        <dd>
+            A hybrid scripting language that extends HTML code to make it XML compliant.
+        </dd>
+        <dt>Java servlet</dt>
+        <dd>
+            A Java program that is stored on the server and contains the business and 
+            database logic for a Java-based application.
+        </dd>
+    </dl>
+
+    <h4>Key Benefits of Three-Tier Applications</h4>
+    <ul>
+        <li>Scalability</li>
+        <li>Technological flexibility</li>
+        <li>Lower long-term costs</li>
+        <li>Better match of systems to business needs</li>
+        <li>Improved customer service</li>
+        <li>Competitive advantage</li>
+        <li>Reduced risk</li>
+    </ul>
+
+    <h2>Unit 6 Section 2: XML and Data Exchange on the Internet</h2>
+
+    <p>
+        <em>Personal note:</em> It seems like <strong>JSON</strong> is currently the more popular approach to recieve
+        data from a webserver. You can check out W3Schools JSON tutorial 
+        <a href="https://www.w3schools.com/js/js_json_intro.asp">here.</a>
+    </p>
+
+    <dl>
+        <dt>Extensible Markup Language (XML)</dt>
+        <dd>
+            A text-based scripting language used to describe data structures hierarchically,
+            using HTML-like tags.
+        </dd>
+        <dt>XML Schema Definition (XSD)</dt>
+        <dd>
+            Language used for defining XML databases that has been recommended by the W3C.
+        </dd>
+        <dt>XPath</dt>
+        <dd>
+            One of a set of XML technologies that supports XQuery development. XPath expressions
+            are used to locate data in XML documents.
+        </dd>
+        <dt>XQuery</dt>
+        <dd>
+            An XML transformation language that allows applications to query btoh relational
+            databases and XML data.
+        </dd>
+        <dt>Extensible Stylesheet Language Transformation (XSLT)</dt>
+        <dd>
+            A language used to transform complex XML documents and also used to create HTML pages
+            from XML documents.
+        </dd>
+        <dt>Web services</dt>
+        <dd>
+            A set of emerging standards that define protocols for automatic communication between
+            software programs over the Web. Web services are XML based and usually run in the
+            background to establish transparent communication among computers.
+        </dd>
+        <dt>Universal Description, Discovery, and Integration (UDDI)</dt>
+        <dd>
+            A technical specification for creating a distributed registry of Web services and
+            businesses that are open to communicating through Web services.
+        </dd>
+        <dt>Web Services Description Language (WSDL)</dt>
+        <dd>
+            An XML-based grammar or language used to describe a Web service and specify a public
+            interface for that service.
+        </dd>
+        <dt>Simple Object Access Protocol (SOAP)</dt>
+        <dd>
+            An XML-based communication protocol used for sending messages between applications via
+            the Internet.
+        </dd>
+        <dt>Service-oriented architecture(SOA)</dt>
+        <dd>
+            A collection of services that communicate with each other in some manner, usually by
+            passing data or coordinating a business activity.
+        </dd>
+    </dl>
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 </body>
