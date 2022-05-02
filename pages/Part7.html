@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+	<title>Database Management Learning Journey - Part 7</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
+
+	<h2>Unit 7 Section 1: Basic Concepts of Data Warehousing</h2>
+
+    <dl>
+        <dt>Data warehouse</dt>
+        <dd>
+            A subject-oriented, integrated, time-variant, nonupdatable collection of data used in support
+            of management decision-making processes.
+            <a href="https://en.wikipedia.org/wiki/Data_warehouse">Wikipedia - Data Warehouse</a>
+            <ul>
+                <li>
+                    <em>Subject-oriented</em>> A data warejpise is organized around the key subjects (or 
+                    high-level entities) of the enterprise. Major subjects may include customers, patients, 
+                    students, products, and time.
+                </li>
+                <li>
+                    <em>Integrated</em> The data housed in the data warehouse are defined using consistent
+                    naming conventions, formats, encoding structures, and related characteristics gathered
+                    from several internal systems of record and also often from sources external to the
+                    organization. This means that the data warehouse holds the one version of "the truth."
+                </li>
+                <li>
+                    <em>Time-variant</em> Data in the data warehouse contain a time dimension so that they 
+                    may be used to study trends and changes.
+                </li>
+                <li>
+                    <em>nonupdatable</em> Data in the data warehouse are loaded and refreshed from operational
+                    systems, but cannot be updated by end users.
+                </li>
+            </ul>
+        </dd>
+        <dt>Operational system</dt>
+        <dd>
+            A system that is used to run a business in real-time, based on current data. Also called a system
+            of record. 
+            <a href="https://en.wikipedia.org/wiki/Operational_database">Wikipedia - Operational Database</a>
+        </dd>
+    </dl>
+
+    <h4 class="center">Comparison of Operational and Informational Systems</h4>
+    <table class="center">
+        <tr>
+            <th>Characteristic</th>
+            <th>Operational Systems</th>
+            <th>Informational Systems</th>
+        </tr>
+        <tr>
+            <td>Primary purpose</td>
+            <td>Run the business on a current basis</td>
+            <td>Support Managerial decision making</td>
+        </tr>
+        <tr>
+            <td>Type of data</td>
+            <td>Current representation of state of the business</td>
+            <td>Historical point-in-time (snapshots) and predictions</td>
+        </tr>
+        <tr>
+            <td>Primary user</td>
+            <td>Clerks, salespersons, administrators</td>
+            <td>Managers, business analysts, customers</td>
+        </tr>
+        <tr>
+            <td>Scope of usage</td>
+            <td>Narrow, planned, and simple updates and queries</td>
+            <td>Broad, ad hoc, complex queries and analysis</td>
+        </tr>
+        <tr>
+            <td>Design goal</td>
+            <td>Performance: throughput, availability</td>
+            <td>Ease of flexible access and use</td>
+        </tr>
+        <tr>
+            <td>Volume</td>
+            <td>Many constant updates and queries on on eor a few table rows</td>
+            <td>Periodic batch updates and queries requiring many or all rows</td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Informational system</dt>
+        <dd>
+            A system designed to support decision making based on historical point-in-time and
+            prediction data for complex queries or data-mining applications. 
+        </dd>
+    </dl>
+
+
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
+</body>
+

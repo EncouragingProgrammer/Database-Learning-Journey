@@ -614,5 +614,17 @@
         </dd>
     </dl>
 
+    <p>
+        <strong>SQL Example from above lecture</strong>
+        <pre><code>
+            SELECT COUNT(name) AS name_count, city
+            FROM customers
+            WHERE name LIKE '%a'
+            GROUP BY city
+            HAVING COUNT(name) > 2
+            ORDER BY name_count DESC
+        </code></pre>
+    </p>
+
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 </body>
