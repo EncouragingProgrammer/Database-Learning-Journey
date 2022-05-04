@@ -95,6 +95,259 @@
         </dd>
     </dl>
 
+    <h2>Unit 7 Section 2: Data Warehouse Architectures and OLAP Tools</h2>
+
+    <dl>
+        <dt>Data mart</dt>
+        <dd>
+            A data warehouse that is limited in scope, whose data are obtained by selecting and
+            summarizing data from a data warehouse or from separate extract, transform, and load
+            processes from source data systems. 
+            <a href="https://www.talend.com/resources/what-is-data-mart/">What is a Data Mart?</a>
+        </dd>
+        <dt>Independent data mart</dt>
+        <dd>
+            A data mart filled with data extracted from the operational environment, without the
+            benefit of a data warehouse.
+        </dd>
+        <dt>Dependent data mart</dt>
+        <dd>
+            A data mart filled exclusively from an enterprise data warehouse and its reconciled
+            data.
+        </dd>
+        <dt>Enterprise data warehouse (EDW)</dt>
+        <dd>
+            A centralized, integrated data warehouse that is the control point and single source
+            of all data made available to end users for decision support applications.
+        </dd>
+        <dt>Operational data store (ODS)</dt>
+        <dd>
+            An integrated, subject-oriented, continuously updateable, current-values (with recent
+            history), enterprise-wide, detailed database designed to serve operational users as they
+            do decision support processing.
+        </dd>
+        <dt>Logical data mart</dt>
+        <dd>
+            A data mart created by a relational view of a data warehouse.
+        </dd>
+        <dt>Real-time data warehouse</dt>
+        <dd>
+            An enterprise data warehouse that accepts near-real-time feeds of transactional data from
+            the systems of record, analyzes warehouse data, and in near-real-time relays business rules
+            to the data warehouse and systems of record so that immediate action can be taken in response
+            to business events.            
+        </dd>
+    </dl>
+
+    <h4 class="center">Data Warehouse Versus Data Mart</h4>
+    <table class="center">
+        <tr>
+            <th>Data Warehouse</th>
+            <th>Data Mart</th>
+        </tr>
+        <tr>
+            <td><h5>Scope</h5><ul>
+                <li>Application independent</li>
+                <li>Centralized, possibly enterprise-wide</li>
+                <li>Planned</li>
+            </ul></td>
+            <td><h5>Scope</h5><ul>
+                <li>Specific DSS application</li>
+                <li>Decentralized by user area</li>
+                <li>Organic, possibly not planned</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><h5>Data</h5><ul>
+                <li>Historical, detailed, and summarized</li>
+                <li>Lightly denormalized</li>
+            </ul></td>
+            <td><h5>Data</h5><ul>
+                <li>Some history, detailed, and summarized</li>
+                <li>Highly denormalized</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><h5>Subjects</h5><ul>
+                <li>Multiple subjects</li>
+            </ul></td>
+            <td><h5>Subjects</h5><ul>
+                <li>One central subject of concern to users</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><h5>Sources</h5><ul>
+                <li>Many internal and extrenal sources</li>
+            </ul></td>
+            <td><h5>Sources</h5><ul>
+                <li>Few internal and extrenal sources</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><h5>Other Characteristics</h5><ul>
+                <li>Flexible</li>
+                <li>Data oriented</li>
+                <li>Long life</li>
+                <li>Large</li>
+                <li>Single complex structure</li>
+            </ul></td>
+            <td><h5>Other Characteristics</h5><ul>
+                <li>Restrictive</li>
+                <li>Project oriented</li>
+                <li>Short life</li>
+                <li>Start small, becomes large</li>
+                <li>Multi, semi-complex structures, together complex</li>
+            </ul></td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Reconciled</dt>
+        <dd>
+            Detailed, current data intended to be the single, authoritative source for all
+            decision support applications.
+        </dd>
+        <dt>Derived data</dt>
+        <dd>
+            Data that have been selected, formatted, and aggregated for end-user decision support
+            applications.
+        </dd>
+        <dt>Transient data</dt>
+        <dd>
+            Data in which changes to existing records are written over previous records, thus
+            destroying the previous data content.
+        </dd>
+        <dt>Periodic data</dt>
+        <dd>
+            Data that are never physically altered or deleted once they have been added to the 
+            store.
+        </dd>
+        <dt>Star schema</dt>
+        <dd>
+            A simple database design in which dimensional data are separated from fact or event
+            data. A dimensional model is another name for a star schema.
+        </dd>
+        <dt>Grain</dt>
+        <dd>
+            The level of detail  in a fact table, determined by the intersection of all the
+            components of the primary key, including all foreign keys and any other primary key
+            elements.
+        </dd>
+        <dt>Conformed dimension</dt>
+        <dd>
+            One or more dimension tables associated with two or more fact tables for which the
+            dimension tables have the same business meaning and primary key with each fact table.
+        </dd>
+        <dt>Snowflake schema</dt>
+        <dd>
+            An expanded version of a star schema in which dimension tables are normalized into
+            several related tables.
+        </dd>
+    </dl>
+
+    <p>
+        Finding the dimension row for a fact row: SQL WHERE clause would include:
+        <pre><code>
+            WHERE Face.CustomerKey = Customer.CustomerKey
+            AND Face.DateKey BETWEEN Customer.StartDate and Customer.EndDate
+        </code></pre>
+    </p>
+
+    <h4>Ten Essential Rules of Dimensional Modeling</h4>
+    <ol>
+        <li>
+            <strong>Use atomic facts:</strong> Eventually, users want detailed data, even if their 
+            initial requests are for summarized facts.
+        </li>
+        <li>
+            <strong>Create single-process fact tables:</strong> Each fact table should address the 
+            important measurements for one business process, such as taking a customer order or 
+            placing a material purchase order.
+        </li>
+        <li>
+            <strong>Include a date dimension for every fact table:</strong> A fact should be 
+            described by the characteristics of the associated day (or finer) date/time to which 
+            that fact is related.
+        </li>
+        <li>
+            <strong>Enforce consistent grain:</strong> Each measurement in a fact table must be atomic 
+            for the same combination of keys (the same grain).
+        </li>
+        <li>
+            <strong>Disallow null keys in fact tables:</strong> Facts apply to the combination of key 
+            values, and helper tables may be needed to represent some M:N relationships.
+        </li>
+        <li>
+            <strong>Honor hierarchies:</strong> Understand the hierarchies of dimensions and carefully 
+            choose to snowflake the hierarchy or denormalize into one dimension.
+        </li>
+        <li>
+            <strong>Decode dimension tables:</strong> Store descriptions of surrogate keys and codes 
+            used in fact tables in associated dimension tables, which can then be used to report labels 
+            and query filters.
+        </li>
+        <li>
+            <strong>Use surrogate keys:</strong> All dimension table rows should be identified by a 
+            surrogate key, with descriptive columns showing the associated production and source system 
+            keys.
+        </li>
+        <li>
+            <strong>Conform dimensions:</strong> Conformed dimensions should be used across multiple 
+            fact tables.
+        </li>
+        <li>
+            <strong>Balance requirements with actual data:</strong> Unfortunately, source data may not 
+            precisely support all business requirements, so you must balance what is technically possible 
+            with what users want and need.
+        </li>
+    </ol>
+
+    <p>
+        <strong>SQL Example</strong><em>Which customer has bought the most of each product we sell? Show 
+            the product ID and description, customer ID and name, and the total quantity sold of that 
+            product to that customer; show the results in sequence by product ID.</em>>
+        <pre><code>
+            SELECT P1.ProductId, ProductDescription, C1.CustomerId,   
+                CustomerName,SUM(OL1.OrderedQuantity) AS TotOrdered  
+                FROM Customer_T AS C1, Product_T AS P1, OrderLine_T     
+                    AS OL1, Order_T AS O1  
+                WHERE C1.CustomerId = O1.CustomerId    
+                    AND O1.OrderId = OL1.OrderId    
+                    AND OL1.ProductId = P1.ProductId  
+                GROUP BY P1.ProductId, ProductDescription,     
+                    C1.CustomerId, CustomerName  
+                HAVING TotOrdered >= ALL  
+                (SELECT SUM(OL2.OrderedQuantity)  
+                FROM OrderLine_T AS OL2, Order_T AS O2  
+                WHERE OL2.ProductId = P1.ProductId    
+                    AND OL2.OrderId = O2.OrderId    
+                    AND O2.CustomerId <> C1.CustomerId  
+                GROUP BY O2.CustomerId)
+            ORDER BY P1.ProductId;
+        </code></pre>
+
+        <p>
+            <em>NOTE: This query could be greatly simplified using a TOP 1 clause with the SUM</em>
+        </p>
+    </p>
+
+    <p>
+        <strong>SQL Example</strong><em>An OVER clause can be used to define three adjacent days 
+            as the basis for calculating moving averages. PARTITION BY within an OVER clause is 
+            similar to GROUP BY; PARTITION BY tells an OVER clause the basis for each set, an ORDER 
+            BY clause sequences the elements of a set, and the ROWS clause says how many rows in 
+            sequence to use in a calculation. For example, consider a SalesHistory table (columns 
+            TerritoryID, Quarter, and Sales) and the desire to show a three-quarter moving average 
+            of sales. The following SQL will produce the desired result using these OLAP clauses:
+        </em>
+
+        <pre><code>
+            SELECT TerritoryID, Quarter, Sales,  
+                AVG(Sales) OVER (PARTITION BY TerritoryID    
+                    ORDER BY Quarter ROWS 2 PRECEDING) AS 3QtrAverage
+            FROM SalesHistory;
+        </code></pre>
+    </p>
 
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
