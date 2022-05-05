@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+	<title>Database Management Learning Journey - Part 7</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <header><h1><a href="../index.html">Intro to Database Management</a></h1></header>
+
+	<h2>Unit 8 Section 1: Data Quality and Integration</h2>
+
+    <dl>
+        <dt>Data governance</dt>
+        <dd>
+            High-level organizational groups and processes that oversee data stewardship
+            across the organization. It usually guides data quality initiatives, data 
+            architecture, data integration and master data management, data warehousing
+            and business intelligence, and other data-related matters.
+        </dd>
+        <dt>Data steward</dt>
+        <dd>
+            A person assigned the responsibility of ensuring that organizational applications
+            properly support the organization's enterprise goals for data quality.
+        </dd>
+    </dl>
+
+    <h4>Data Quality is Important to...</h4>
+    <ul>
+        <li>Minimize IT project risk</li>
+        <li>Make timely business decisions</li>
+        <li>Ensure regulatory compliance</li>
+        <li>Expand the customer base</li>
+    </ul>
+
+    <h4>Characteristics of Quality Data</h4>
+    <ul>
+        <li>Uniqueness</li>
+        <li>Accuracy</li>
+        <li>Consistency</li>
+        <li>Completeness</li>
+        <li>Timeliness</li>
+        <li>Currency</li>
+        <li>Conformance</li>
+        <li>Referential integrity</li>
+    </ul>
+
+    <h4 class = "center">Reasons for Deteriorated Data Quality</h4>
+    <table class = "center">
+        <tr>
+            <th>Reason</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <td>External data source</td>
+            <td>Lack of control over data quality</td>
+        </tr>
+        <tr>
+            <td>Redundant data storage and inconsistent metadata</td>
+            <td>Proliferation of databases with uncontrolled reduandancy and metadata</td>
+        </tr>
+        <tr>
+            <td>Data entry problems</td>
+            <td>Poor data capture controls</td>
+        </tr>
+        <tr>
+            <td>Lack of organizational commitment</td>
+            <td>Not recognizing poor data quality as an organizational issue</td>
+        </tr>
+    </table>
+
+    <h4 class = "center">Key Steps in a Data Quality Program</h4>
+    <table class = "center">
+        <tr>
+            <th>Step</th>
+            <th>Motivation</th>
+        </tr>
+        <tr>
+            <td>Get the business buy-in</td>
+            <td>Show the value of data quality management to executives</td>
+        </tr>
+        <tr>
+            <td>Conduc a data quality audit</td>
+            <td>Understand the extent and nature of data quality problems</td>
+        </tr>
+        <tr>
+            <td>Establish a data stewardship program</td>
+            <td>Achieve organizational commitment and involvement</td>
+        </tr>
+        <tr>
+            <td>Improve data capture processes</td>
+            <td>Overcome the "garbage in, garbage out" phenomenon</td>
+        </tr>
+        <tr>
+            <td>Apply modern data management principles and technology</td>
+            <td>Use proven methods and techniques to make more thorough data quality
+                activities easier to execute
+            </td>
+        </tr>
+        <tr>
+            <td>Apply TQM principles and practices</td>
+            <td>Follow best practices to deal with all aspects of data quality management</td>
+        </tr>
+    </table>
+    
+    <dl>
+        <dt>Master data management (MDM)</dt>
+        <dd>
+            Disciples, technologies, and methods used to ensure the currency, meaning, and 
+            quality of reference data within and across various subject areas.
+        </dd>
+        <dt>Changed data capture (CDC)</dt>
+        <dd>
+            Technique that indicates which data have changed since the last data integration
+            activity.
+        </dd>
+        <dt>Data federation</dt>
+        <dd>
+            A technique for data integration that provides a virtual view of integrated data
+            without actually creating one centralized database.
+        </dd>
+    </dl>
+
+    <h4 class = "center">Comparison of Consolidation, Federation, and Propagation Forms of 
+        Data Integrity</h4>
+    <table class = "center">
+        <tr>
+            <th>Method</th>
+            <th>Pros</th>
+            <th>Cons</th>
+        </tr>
+        <tr>
+            <td>Consolidation (ETL)</td>
+            <td>
+                <ul>
+                    <li>Users are isolated from conflicting workloads on source systems, especially
+                         updates.</li>
+                    <li>It is possible to retain history, not just current values.</li>
+                    <li>A data store designed for specific requirements can be accessed quickly.</li>
+                    <li>It works well when the scope of data needs are anticipated in advance.</li>
+                    <li>Data transformations can be batched for greater efficiency.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Network, storage, and data maintenance costs can be high.</li>
+                    <li>Performance can degrade when the data warehouse becomes quite large (with 
+                        some technologies).</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Federation (EII)</td>
+            <td>
+                <ul>
+                    <li>Data are always current (like relational views) when requested</li>
+                    <li>It is simple for the calling application.</li>
+                    <li>It works well for read-only applications because only requested data
+                        need to be retrieved.
+                    </li>
+                    <li>It is ideal when copies of source data are not allowed</li>
+                    <li>Dynamic ETL is possible when one cannot anticipate data integration
+                        needs in advance or when there is a one-time need.
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Heavy workloads are possible for each request due to performing
+                        all the integration tasks for each request.
+                    </li>
+                    <li>Write access to data sources may not be supported.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Propagation (EAI & ERD)</td>
+            <td>
+                <ul>
+                    <li>Data are availabe in near real-time.</li>
+                    <li>It is possible to work with ETL for real-time data warehousing.</li>
+                    <li>Transparent access is available to the data source.</li>
+                </ul>
+            </td>
+            <td>
+                <li>There is considerable (but background) overhead associated with 
+                    synchronizing duplicate data.
+                </li>
+            </td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Static extract</dt>
+        <dd>
+            A method of capturing a snapshot of the required source data at a point in time.
+        </dd>
+        <dt>Incremental extract</dt>
+        <dd>
+            A method of capturing only the changes that have occurred in the source data since
+            the last capture.
+        </dd>
+        <dt>Data scrubbing</dt>
+        <dd>
+            A process of using pattern recognition and other artificial intelligence techniques
+            to upgrade the quality of raw data before transforming and moving the data to the
+            data warehouse. ALso called data cleansing.
+        </dd>
+        <dt>Refresh mode</dt>
+        <dd>
+            An approach to filling a data warehouse that involves bulk rewriting of the target
+            data at periodic intervals.
+        </dd>
+        <dt>Update mode</dt>
+        <dd>
+            An approach to filling a data warehouse in which only changes in the source data are
+            written to the data warehouse.
+        </dd>
+        <dt>Data transformation</dt>
+        <dd>
+            The component of data reconciliation that converts data from the format of the source
+            operational systems to the format of the enterprise data warehouse.
+        </dd>
+        <dt>Selection</dt>
+        <dd>
+            The process of partitioning data according to predefined criteria.
+        </dd>
+        <dt>Joining</dt>
+        <dd>
+            The process of combining data from various sources into a single table or view.
+        </dd>
+        <dt>Aggregation</dt>
+        <dd>
+            The process of transforming data from a detailed level to a summary level.
+        </dd>
+    </dl>
+
+    <h2>Unit 8 Section 2: Data Administration and Database Administration</h2>
+
+    
+
+    <footer><a href="../pages/Citations.html">Citations</a></footer>
+</body>
