@@ -12,6 +12,16 @@
 
 	<h2>Unit 7 Section 1: Basic Concepts of Data Warehousing</h2>
 
+    <p>
+        Most data warehouses today follow a three-layer architecture. The first layer consists 
+        of data distributed throughout the various operational systems. The second layer is an 
+        enterprise data warehouse, which is a centralized, integrated data warehouse that is 
+        the control point and single source of all data made available to end users for decision 
+        support applications. The third layer is a series of data marts. A data mart is a data 
+        warehouse whose data are limited in scope for the decision-making needs of a particular 
+        user group.
+    </p>
+
     <dl>
         <dt>Data warehouse</dt>
         <dd>
@@ -348,6 +358,110 @@
             FROM SalesHistory;
         </code></pre>
     </p>
+
+    <dl>
+        <dt>Online analytical processing (OLAP)</dt>
+        <dd>
+            The use of a set of graphical tools that provides users with multidimensional views
+            of their data and allows them to analyze the data using simpl windowing techniques.
+        </dd>
+        <dt>Relational OLAP (ROLAP)</dt>
+        <dd>
+            OLAP tools that view the database as a traditional relational database in either a 
+            star schema or other normalized or denormalized set of tables.
+        </dd>
+        <dt>Multidimensional OLAP (MOLAP)</dt>
+        <dd>
+            OLAP tools that load data into an intermediate structure, usually a three- or 
+            higher-dimensional array.
+        </dd>
+        <dt>Data visualization</dt>
+        <dd>
+            The visualization of data in graphical and multimedia formats for human analysis.
+        </dd>
+        <dt>Data mining</dt>
+        <dd>
+            Knowledge discovery, using a sophisticated blend of  techniques from traditional
+            statistics, artificial intelligence, and computer graphics. The goals of data mining
+            include:
+            <ol>
+                <li><strong>Explanatory </strong>
+                    To explain some observed event or conditon, such as why sales of pickup trucks
+                    have increased in Colorado
+                </li>
+                <li><strong>Confirmatory </strong>
+                    To confirm a hypothesis, such as whether two-income families are more likely
+                    to buy family medical coverage that single-income families
+                </li>
+                <li><strong>Exploratory </strong>
+                    To analyze data for new or unexpected relationships, such as what spending
+                    patterns are likely to accompany credit card fraud
+                </li>
+            </ol>
+        </dd>
+    </dl>
+
+    <h4 class = "center">Data-Mining Techniques</h4>
+    <table class = "center">
+        <tr>
+            <th>Technique</th>
+            <th>Function</th>
+        </tr>
+        <tr>
+            <td>Regression</td>
+            <td>
+                Test or discover relationships from histrocial data
+            </td>
+        </tr>
+        <tr>
+            <td>Decision tree induction</td>
+            <td>
+                Test or discover if...then rules for decision propensity
+            </td>
+        </tr>
+        <tr>
+            <td>Clustering and signal processing</td>
+            <td>
+                Discover subgroups or segments
+            </td>
+        </tr>
+        <tr>
+            <td>Affinity</td>
+            <td>
+                Discover strong mutual relationships
+            </td>
+        </tr>
+        <tr>
+            <td>Sequence association</td>
+            <td>
+                Discover cycles of events and behaviors
+            </td>
+        </tr>
+        <tr>
+            <td>Case-based reasoning</td>
+            <td>
+                Derive rules from real-world case examples
+            </td>
+        </tr>
+        <tr>
+            <td>Rule discovery</td>
+            <td>
+                Search for patterns and correlations in large data sets
+            </td>
+        </tr>
+        <tr>
+            <td>Fractals</td>
+            <td>
+                Compress large databases without losing information
+            </td>
+        </tr>
+        <tr>
+            <td>Neural nets</td>
+            <td>
+                Develop predictive models based on principles modeled after the human brain
+            </td>
+        </tr>
+    </table>
 
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
