@@ -524,6 +524,53 @@
             An approach to dealing with deadlocks that allows deadlocks to occur but builds
             mechanisms into the DBMS for detecting and breaking the deadlocks.
         </dd>
+        <dt>Versioning</dt>
+        <dd>
+            An approach to concurrency control in which each transaction is restricted to
+            a view of the database as of the time that transaction stared, and when a
+            transaction modifies a record, the DBMS creates a new record version instead
+            of overwriting the old record. Hence, no form of locking is required.
+        </dd>
+        <dt>Data dictionary</dt>
+        <dd>
+            A repository of information about a database that documents data elements of
+            a database.
+        </dd>
+        <dt>System catalog</dt>
+        <dd>
+            A system-created database that describes all database objects, including data
+            dictionary information, and also includes user access information.
+        </dd>
+        <dt>Information repository</dt>
+        <dd>
+            A component that stores metadata that describe an organization's data and
+            data processing resources, manages the total information processing environment,
+            and combines information about an organization's business information and its
+            application portfolio. 
+        </dd>
+        <dt>Information Resource Dictionary System (IRDS)</dt>
+        <dd>
+            A computer software tool that is used to manage and control access to the 
+            information repository. Repository engine supports five core functions:
+            <ol>
+                <li>Object management</li>
+                <li>Reloatinship management</li>
+                <li>Dynamic extensibility</li>
+                <li>Version management</li>
+                <li>Configuration management</li>
+            </ol>
+        </dd>
+        <dt>Data archiving</dt>
+        <dd>
+            The process of moving inactive data to another storage location where it can be
+            access when needed. 
+        </dd>
+        <dt>Heartbeat query</dt>
+        <dd>
+            A query submitted by a DBA to test the current performance of a database or to
+            predict the response time for queries that have promised response times. Also
+            called a canary query.
+        </dd>
     </dl>
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
