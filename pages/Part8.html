@@ -239,7 +239,292 @@
 
     <h2>Unit 8 Section 2: Data Administration and Database Administration</h2>
 
-    
+    <dl>
+        <dt>Data administration</dt>
+        <dd>
+            A high-level function that is responsible for the overall management of data 
+            resoures in an organization, including maintaining corporate-wide definitions
+            and standards. Core roles of data administration include:
+            <ul>
+                <li>Data policies, procedures, and standards</li>
+                <li>Planning</li>
+                <li>Data conflict resolution</li>
+                <li>Managing the information repository</li>
+                <li>Internal marketing</li>
+            </ul>
+        </dd>
+        <dt>Database administration</dt>
+        <dd>
+            A technical function that is responsible for physical database design and for
+            dealing with technical issues, such as security enforcement, database performance,
+            and backup and recovery. Core roles of database administration include:
+            <ul>
+                <li>Analyzing and designing the database</li>
+                <li>Selecting DBMS and related software tools</li>
+                <li>Installing and upgrading the DBMS</li>
+                <li>Tuning database performance</li>
+                <li>Improving database query processing performance</li>
+                <li>Managing data security, privacy, and integrity</li>
+                <li>Performing data backup and recovery</li>
+            </ul>
+        </dd>
+        <dt>Open source DBMS</dt>
+        <dd>
+            Free DBMS source code software that provides the core functionality of an
+            SQL-compliant DBMS.
+        </dd>
+        <dt>Database security</dt>
+        <dd>
+            Protection of database data against accidental or intentional loss, destruction,
+            or misuse.
+        </dd>
+    </dl>
+
+    <p>
+        Integrity control SQL Examples:
+        <pre><code>
+            CREATE DOMAIN PriceChange AS DECIMAL
+                CHECK (VALUE BETWEEN .001 and .15);
+
+            PriceIncrease PriceChange NOT NULL,
+
+            CREATE ASSERTIONSpousalSupervision
+                CHECK (SupervisorID &lt; &gt; SpouseID);
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>Authorization rules</dt>
+        <dd>
+            Controls incorporated in a data management systems that restrict access to data and
+            also restrict the actions that people may take when they access data.
+        </dd>
+    </dl>
+
+    <p>
+        SQL Example, grant read and update privileges:
+        <pre><code>
+            GRANT SELECT, UPDATE (UnitPrice) ON Product_T TO SMITH;
+        </code></pre>
+    </p>
+
+    <dl>
+        <dt>User-defined procedures</dt>
+        <dd>
+            User exits (or interfaces) that allow system designers to define their own security
+            procedures in addition to the authorization rules.
+        </dd>
+        <dt>Encryption</dt>
+        <dd>
+            The coding or scrambling of data so that humans cannot read them.
+        </dd>
+        <dt>Smart card</dt>
+        <dd>
+            A credit card-sized plastic card with an embedded microprocessor chip that can store,
+            process, and output electronic data in a secure manner.
+        </dd>
+        <dt>Database recovery</dt>
+        <dd>
+            Mechanisms for restoring a database quickly and accurately after loss or damage. Basic
+            recovery facilities:
+            <ol>
+                <li>Backup facilities</li>
+                <li>Journalizing facilities</li>
+                <li>A checkpoint facility</li>
+                <li>A recovery manager</li>
+            </ol>
+        </dd>
+        <dt>Backup facilities</dt>
+        <dd>
+            A DBMS COPY utility that produces a backup copy (or save) of an entire database or a
+            subset of a database.
+        </dd>
+        <dt>Journalizing facilities</dt>
+        <dd>
+            An audit trail of transactions and database changes.
+        </dd>
+        <dt>Transactions</dt>
+        <dd>
+            A discrete unit of work that must be completely proessed or not processed at all
+            within a computer system. Entering a customer order is an example of a transaction. 
+            Transactions must follow four properties (ACID):
+            <ol>
+                <li>Atmoic</li>
+                <li>Consistent</li>
+                <li>Isolated</li>
+                <li>Durable</li>
+            </ol>
+        </dd>
+        <dt>Transaction log</dt>
+        <dd>
+            A record of the essenial data for each transaction that is processed against the 
+            database.
+        </dd>
+        <dt>Database change log</dt>
+        <dd>
+            A log that contains before and after images of records that have been modified by
+            transactions.
+        </dd>
+        <dt>Before image</dt>
+        <dd>
+            A copy of a record (or page of memory) before it has been modified.
+        </dd>
+        <dt>After image</dt>
+        <dd>
+            A copy of a record (or page of memory) after it has been modified.
+        </dd>
+        <dt>Checkpoint facility</dt>
+        <dd>
+            A facility by which a DBMS periodically refuses to accept any new transactions.
+            The system is in a quiet state, and the database and transaction log are 
+            synchronized.
+        </dd>
+        <dt>Recovery manager</dt>
+        <dd>
+            A module of a DBMS that restores the database to a correct condition when a failure
+            occurs and then resumes processing user questions.
+        </dd>
+        <dt>Restore/rerun</dt>
+        <dd>
+            A technique that involves reprocessing the day's transactions (up to the point of
+            failure) against the backup copy of the database.
+        </dd>
+        <dt>Transaction boundaries</dt>
+        <dd>
+            The logical beginning and end of a transaction.
+        </dd>
+        <dt>Backward recovery (rollback)</dt>
+        <dd>
+            The backout, or undo, of unwanted changes to a database. Before images of the records
+            that have been changed are applied to the database, and the database is returned to
+            an earlier state. Rollback is used to reverse the changes made by transactions that
+            have been aborted, or terminated abnormally.
+        </dd>
+        <dt>Forward recovery</dt>
+        <dd>
+            A technique that starts with an earlier copy of a database. After images (the results
+            of good transactions) are applied to the database, and the database is quickly moved
+            forward to a later state.
+        </dd>
+        <dt>Aborted transacation</dt>
+        <dd>
+            A transaction in progress that terminates abnormally.
+        </dd>
+    </dl>
+
+    <h4 class = "center">Responses to Database Failure</h4>
+    <table class = "center">
+        <tr>
+            <th>Type of Failure</th>
+            <th>Recovery Technique</th>
+        </tr>
+        <tr>
+            <td>Aborted transaction</td>
+            <td>
+                <ul>
+                    <li>Rollback (preferred)</li>
+                    <li>Rollforward/return transactions to state just prior to abort</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Incorrect data (update inaccurate)</td>
+            <td>
+                <ul>
+                    <li>Rollback (preferred)</li>
+                    <li>Reprocess transactions without inaccurate data updates</li>
+                    <li>Compensating transactions</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>System failure (database intact)</td>
+            <td>
+                <ul>
+                    <li>Switch to duplicate database (preferred)</li>
+                    <li>Rollback</li>
+                    <li>Restart from checkpoint (rollforward)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Database destruction</td>
+            <td>
+                <ul>
+                    <li>Switch to duplicate database (preferred)</li>
+                    <li>Rollforward</li>
+                    <li>Reprocess transactions</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>Database destruction</dt>
+        <dd>
+            The database itself is lost, destroyed, or cannot be read.
+        </dd>
+        <dt>Concurrency control</dt>
+        <dd>
+            The process of managing simultaneous operations against a database so that
+            data integrity is maintained and the operations do not interfere with each
+            other in a multiuser environment.
+        </dd>
+        <dt>Inconsistent read problem</dt>
+        <dd>
+            An unrepeatable read, one that occurs when one user reads data that have been
+            partially updated by another user.
+        </dd>
+        <dt>Locking</dt>
+        <dd>
+            A process in which any data that are retrieved by a user for updating must
+            be locked, or denied to other users, until the update is completed or aborted.
+        </dd>
+        <dt>Locking level (lock granularity)</dt>
+        <dd>
+            The extent of a database resource that is included with each lock. Locking
+            levels include:
+            <ul>
+                <li>Database</li>
+                <li>Table</li>
+                <li>Block or page</li>
+                <li>Record</li>
+                <li>Field</li>
+            </ul>
+        </dd>
+        <dt>Shared locks (S locks, or read locks)</dt>
+        <dd>
+            A technique that allows other transactions to read but not update a record
+            or another resource.
+        </dd>
+        <dt>Exclusive locks (X lock, or write lock)</dt>
+        <dd>
+            A technique that prevents another transaction from reading and therefore
+            updating a record until it is unlocked.
+        </dd>
+        <dt>Deadlock</dt>
+        <dd>
+            An impasse that results when two or more transactions have locked a common
+            resource, and each waits for the other to unlock that resource.
+        </dd>
+        <dt>Deadlock prevention</dt>
+        <dd>
+            A method for resolving deadlocks in which user programs must lock all records
+            they require at the beginning of a transaction (rather than one at a time).
+        </dd>
+        <dt>Two-phase locking protocol</dt>
+        <dd>
+            A procedure for acquiring the necessary locks for a transaction in which all
+            necessary locks are acquired before any locks are released, resulting in a
+            growing phase when locks are acquired and a shrinking phase when they are
+            released.
+        </dd>
+        <dt>Deadlock resolution</dt>
+        <dd>
+            An approach to dealing with deadlocks that allows deadlocks to occur but builds
+            mechanisms into the DBMS for detecting and breaking the deadlocks.
+        </dd>
+    </dl>
 
     <footer><a href="../pages/Citations.html">Citations</a></footer>
 </body>
